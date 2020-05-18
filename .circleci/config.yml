@@ -35,10 +35,10 @@ jobs:
             - save_cache:
                   paths:
                       - ~/.m2
-                  key: v1-dependencies-{{ checksum "pom.xml" }}
+                  key: v1-dependencies- #{{ checksum "pom.xml" }}
 
-            - run: git config user.email "john@springframework.guru"
-            - run: git config user.name "Via CircleCI Build"
+            #- run: git config user.email "john@springframework.guru"
+            #- run: git config user.name "Via CircleCI Build"
             # run tests!
-            - run: mvn --batch-mode release:prepare release:perform -s .circleci/settings.xml
-
+            #- run: mvn --batch-mode release:prepare release:perform -s .circleci/settings.xml
+            - run: mvn integration-test
